@@ -11,7 +11,6 @@ public class IrctcAccommidationsPage extends GenericWrappers{
 	}
 	
 	public IrctcAccommidationsPage selectLounge_accomid(String platformtext) {
-		
 			selectVisibileTextByXpath("//select[@name='laungecity']", platformtext);
 			return this;		
 	}
@@ -19,27 +18,30 @@ public class IrctcAccommidationsPage extends GenericWrappers{
 		selectValueByXpath("//select[@name='selPassangers']",value);
 		return this;
 	}
-	public IrctcAccommidationsPage selectCheckInDate_accomid(String date) {
+	public IrctcAccommidationsPage selectCurrentDateAsCheckInDate_accomid(String date) {
 		clickByXpath("//input[@name='acservicecheckindate']");
 		clickByXpath("//span[contains(@class,'act') and text()='"+date+"']");
+		threadWait(1000);
 		return this;
 	}
-	public IrctcAccommidationsPage selectCheckInTime_accomid(String value) {
-		selectVisibileTextByXpath("//select[@name='checkInTime']",value);
+	public IrctcAccommidationsPage selectCheckInTime_accomid(String valuetext) {
+		selectVisibileTextByXpath("//select[@name='checkInTime']",valuetext);
 			return this;
 	}
-	public IrctcAccommidationsPage selectDurationOfHours_accomid(String value) {
-		selectValueByXpath("//select[@name='checkOutTime']", value);
+	public IrctcAccommidationsPage selectDurationOfHours_accomid(String textvalue) {
+		selectVisibileTextByXpath("//select[@name='checkOutTime']", textvalue);
 		return this;
 		
 	}
 	public IrctcAccommidationsPage clickBookButton_accomid() {
 		clickByXpath("//button[normalize-space()='Book']");
+		threadWait(0);
 		return this;
 	}
 	
 	public IrctcAccommidationsPage clickGuestLogin_accomid() {
 		clickByXpath("//a[@id='profile-tab']");
+		threadWait(1000);
 		return this;
 	}
 	public IrctcAccommidationsPage enterMailId_accomid(String mailId) {
@@ -47,11 +49,12 @@ public class IrctcAccommidationsPage extends GenericWrappers{
 		return this;
 	}
 	public IrctcAccommidationsPage enterMobileNumber_accomid(String mobileNumber) {
-		enterByXpath("//input[@id='modalLRInput12']", mobileNumber);
+		enterByXpath("//input[@name='mobileNo']", mobileNumber);
 		return this;
 	}
 	public IrctcAccomidationsPassangerDetail clickLoginButton_accomid() {
 		clickByXpath("//*[@id=\"profile\"]/div/form/div[3]/button");
+		threadWait(2000);
 		return new IrctcAccomidationsPassangerDetail();
 	}
 	

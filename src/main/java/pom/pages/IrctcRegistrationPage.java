@@ -70,7 +70,7 @@ public class IrctcRegistrationPage extends GenericWrappers {
 	public IrctcRegistrationPage selectOccupation_irctcReg(String value) {		
 		clickByXpath("//*[@formcontrolname='occupation']");	
 		threadWait(1000);
-		clickByXpath("//*[@aria-label="+value+"]");
+		clickByXpath("//*[@aria-label='"+value+"']");
 		threadWait(1000);
 		return this;
 	}
@@ -92,8 +92,8 @@ public class IrctcRegistrationPage extends GenericWrappers {
 	}
 
 	public IrctcRegistrationPage SelectMaterialStatus_irctcReg(String status) {
+          clickByXpath("//p-radiobutton[@id='"+status+"']");
 
-		clickByXpath("(//label[text()='"+status+"'])[1]");	
 		return this;
 	}
 
@@ -119,7 +119,7 @@ public class IrctcRegistrationPage extends GenericWrappers {
 	}
 
 	public IrctcRegistrationPage selectNationality_irctcReg(String nationalityvalue) {
-		selectValueByXpath("//*[@formcontrolname='nationality']", nationalityvalue);
+		selectVisibileTextByXpath("//*[@formcontrolname='nationality']", nationalityvalue);
 		return this;	
 		}
 
@@ -147,7 +147,8 @@ public class IrctcRegistrationPage extends GenericWrappers {
 	}
 
 	public IrctcRegistrationPage enterPincodeAddress_irctcReg(String pincode) {
-		enterByXpath("//input[@name='resPinCode']", pincode);
+		enterByXpath("//input[@placeholder='Pin code']", pincode);
+		threadWait(1000);
 		return this;
 	}
 
@@ -156,13 +157,15 @@ public class IrctcRegistrationPage extends GenericWrappers {
 		return this;
 	}
 
-	public IrctcRegistrationPage selectCityAddress_irctcReg(String valueofcity) {	
-		selectVisibileTextByXpath("//*[@formcontrolname='resCity']",valueofcity);
+	public IrctcRegistrationPage selectCityAddress_irctcReg(String textofcity) {	
+		selectVisibileTextByXpath("//*[@formcontrolname='resCity']",textofcity);
+		threadWait(1000);
 		return this;
 	}
 
 	public IrctcRegistrationPage selectPostalOfficeAddress_irctcReg(String postaladdvalue) {
-		selectVisibileTextByXpath("//*[@formcontrolname='resPostOff']",postaladdvalue);
+		selectValueByXpath("//*[@formcontrolname='resPostOff']",postaladdvalue);
+		threadWait(1000);
 		return this;
 	}
 	

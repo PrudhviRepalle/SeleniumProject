@@ -27,7 +27,7 @@ public class Tc_005 extends ProjectWrappers{
 		.selectStationName_accomid("NEW DELHI")
 		.selectLounge_accomid("IRCTC EXECUTIVE LOUNGE, PF-1")
 		.selectNoOfPersons_accomid("2")
-		.selectCheckInDate_accomid("20")
+		.selectCurrentDateAsCheckInDate_accomid("20")
 		.selectCheckInTime_accomid("11:00")
 		.selectDurationOfHours_accomid("13:00")
 		.clickBookButton_accomid()

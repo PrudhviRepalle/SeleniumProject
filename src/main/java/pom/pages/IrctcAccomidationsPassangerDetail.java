@@ -6,26 +6,31 @@ public class IrctcAccomidationsPassangerDetail extends GenericWrappers{
 
 	public IrctcAccomidationsPassangerDetail  enterPasanger1Name_accpass(String name) {
 		enterByXpath("(//input[@placeholder='Name'])[1]",name);
+	    threadWait(1000);
 		return this;
 	}
 	public IrctcAccomidationsPassangerDetail  enterPasanger1Age_accpass(String age) {
-		enterByXpath("(//input[@placeholder='Age'])[1]",age);
+		enterByXpath("//tbody/tr[1]/td[3]/input[1]",age);
+		threadWait(1000);
 		return this;
 		}
 	public IrctcAccomidationsPassangerDetail  selectGenderPass1_accpass(String gendervalue) {
-		selectValueByXpath("//tbody/tr[1]/td[4]/select[1]",gendervalue);
+		selectVisibileTextByXpath("//input[@placeholder='Name']//following::input[@placeholder='Name']//preceding::select",gendervalue);
+		threadWait(1000);
 		return this;
 		}
 	public IrctcAccomidationsPassangerDetail  enterPasanger2Name_accpass(String name) {
-		enterByXpath("(//input[@placeholder='Name'])[2]",name);
+		enterByXpath("//input[@placeholder='Name']//following::input[@placeholder='Name']",name);
 		return this;
 		}
 	public IrctcAccomidationsPassangerDetail  enterPasanger2Age_accpass(String age) {
-		enterByXpath("(//input[@placeholder='Age'])[2]",age);
+		enterByXpath("//input[@placeholder='Age']//following::input[@placeholder='Age']",age);
+		threadWait(1000);
 		return this;
 		}
-	public IrctcAccomidationsPassangerDetail  selectGenderPass2(String gendervalue) {
-		selectValueByXpath("/html/body/app-root/acpassangers/div/form/div/div/div/div/div[1]/div/table/tbody/tr[2]/td[4]/select",gendervalue);
+	public IrctcAccomidationsPassangerDetail  selectGenderPass2(String gendertext) {
+		selectVisibileTextByXpath("//input[@placeholder='Age']//following::input[@placeholder='Age']//following::select",gendertext);
+		threadWait(1000);
 		return this;
 		}
 	public IrctcAccomidationsPassangerDetail  enterPasanger3Name_accpass(String name) {
@@ -40,12 +45,13 @@ public class IrctcAccomidationsPassangerDetail extends GenericWrappers{
 		selectValueByXpath("/html/body/app-root/acpassangers/div/form/div/div/div/div/div[1]/div/table/tbody/tr[3]/td[4]/select",gendervalue);
 		return this;
 		}
-	public IrctcAccomidationsPassangerDetail  selectState_accpass(String statevalue) {
-		selectValueByXpath("//select[@name='state']", statevalue);
+	public IrctcAccomidationsPassangerDetail  selectState_accpass(String statetext) {
+		selectVisibileTextByXpath("//select[@name='state']", statetext);
 		return this;
 	}
 	public IrctcAccomidationsSummaryPage clickOnSubmit_accpass() {
-		clickByXpath("//button[@type='submit'][2]");
+		clickByXpath("//button[normalize-space()='Submit']");
+		threadWait(1000);
 		return new IrctcAccomidationsSummaryPage();
 	}
 	
