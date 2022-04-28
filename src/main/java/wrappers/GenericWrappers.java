@@ -47,7 +47,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Reporter;
 
 public class GenericWrappers extends Reporter implements Wrappers {
-	static RemoteWebDriver driver;
+	public RemoteWebDriver driver;
 	static Properties prop;
 	static JavascriptExecutor js;
 
@@ -916,29 +916,29 @@ public class GenericWrappers extends Reporter implements Wrappers {
 			clickByXpath("");
 			firstText = opt.get(0).getText();
 		}
-//	return text;
+		//	return text;
 	}
 
-    public void scrolldown(int startvalue,int stopvalue) {
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	 js.executeScript("window.scrollBy("+startvalue+","+stopvalue+")");
-     }
-     public void scrollUp(int startvalue,int stopvalue) {
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("window.scrollBy("+startvalue+",-"+stopvalue+")");
-      }
+	public void scrolldown(int startvalue,int stopvalue) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy("+startvalue+","+stopvalue+")");
+	}
+	public void scrollUp(int startvalue,int stopvalue) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy("+startvalue+",-"+stopvalue+")");
+	}
 
-//public void ScrolldownUnitllElementFind(int startvalue,int stopvalue) {
-////Locating element by link text and store in variable "Element"        		
-//   WebElement Element = 
-//// Scrolling down the page till the element is found		
-//     js.executeScript("arguments[0].scrollIntoView();", Element);
-   public void clickElementByXpathExplictwait(String xpath) {
-	   WebDriverWait wait1 = new WebDriverWait(driver, 30);
-	  
-	   WebElement element1 = wait1.until(ExpectedConditions.visibilityOf( driver.findElementByXPath(xpath)));
-	   element1.click();
-   }
-   
+	//public void ScrolldownUnitllElementFind(int startvalue,int stopvalue) {
+	////Locating element by link text and store in variable "Element"        		
+	//   WebElement Element = 
+	//// Scrolling down the page till the element is found		
+	//     js.executeScript("arguments[0].scrollIntoView();", Element);
+	public void clickElementByXpathExplictwait(String xpath) {
+		WebDriverWait wait1 = new WebDriverWait(driver, 30);
+
+		WebElement element1 = wait1.until(ExpectedConditions.visibilityOf( driver.findElementByXPath(xpath)));
+		element1.click();
+	}
+
 }
 

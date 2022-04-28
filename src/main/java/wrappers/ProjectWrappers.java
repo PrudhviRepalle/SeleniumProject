@@ -12,7 +12,7 @@ public class ProjectWrappers extends GenericWrappers {
 	
 	@BeforeSuite
 	public void initReport(){
-		startReport("./reports/Report.html");
+		startReport("./reports/Report2.html");
 	}
 	
 	@BeforeTest
